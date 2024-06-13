@@ -16,5 +16,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: |
+          npm install
           node ./bin/index.js ${{ github.event.inputs.code }} FMX -d 1000
         name: Redeem code

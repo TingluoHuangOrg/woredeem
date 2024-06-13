@@ -171,7 +171,7 @@ const main = async() => {
                 console.log(
                     res.err_code === 40008 ? chalk.yellow('[Received]') : 
                     res.err_code === 20000 ? chalk.green('[OK]') : 
-                    chalk.red('[Failed]')
+                    chalk.red('[Failed]' + JSON.stringify(res))
                 );
                 
                 await sleep(options.delay);

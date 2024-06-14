@@ -1,6 +1,12 @@
 name: Redeem GiftCode
 
-on: 
+on:
+ push:
+  branches:
+    - master
+  paths: 
+    - giftcode
+
  workflow_dispatch:
    inputs:
      code:
@@ -19,3 +25,11 @@ jobs:
           npm install
           node ./bin/index.js ${{ github.event.inputs.code }} FMX -d 2000
         name: Redeem code
+        if: github.event_name == 'workflow_dispatch' 
+
+      - run: |
+          giftcode=$(cat ./giftcode)
+          npm install
+          node ./bin/index.js $giftcode FMX -d 2000
+        name: Redeem code
+        if: github.event_name == 'push' 

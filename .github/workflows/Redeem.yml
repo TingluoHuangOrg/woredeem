@@ -17,5 +17,5 @@ jobs:
 
       - run: |
           npm install
-          node ./bin/index.js ${{ github.event.inputs.code }} FMX -d 1000
+          node ./bin/index.js ${{ github.event.inputs.code }} FMX -d 2000
         name: Redeem code
